@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+    <meta http-equiv="Content-Type" content ="text/html"; charset="utf-8"/>
+    <title>Secured Login Form</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="js/Jquery.js"></script> 
+    <script src="js/custom.js"></script> 
+    <script>
+        $(document).ready(function(){
+            $('#for_pass').click(function(){
+                $('#for_pass').text('Forgot Password Form');
+                $('#for_pop').fadeIn(200);
+            })
+            $('.close').click(function(){
+                $('#for_pass').text('Forgot Password ?');
+                $('#for_pop').fadeOut(200);
+            })
+            $('#pass2').keyup(function(){
+                if($('#pass1').val()!= $('#pass2').val()){
+                $('#pass_match').fadeIn(100);
+            }else{
+                $('#pass_match').fadeOut(100);           
+            }    
+            return true;  
+            })
+       
+        });
+    </script>
+</head>
+    <body>
+<div id='main_part'>
+    <div id='signup'>
+        <h1 id='title'><i class="fas fa-user-astronaut"></i></h1>
+        <p id='pass_match'>Password Does Not Match.</p>
+        <form method="post">
+            <div id ='input' class="u_name">
+                <i class="fas fa-user-astronaut"></i>
+            <input type="text" name="u_name" required="required" pattern="[a-z A-Z]{3,30}" maxlength="30" minlength='3' placeholder="Enter Your Name"/>    
+            </div>
+
+            <div id ='input' class="u_email">
+                <i class="fab fa-mailchimp"></i>
+            <input type="email" name="u_email" required="required" pattern="[a-z A-Z 0-9 ^@._]{5,50}" maxlength="50" minlength='5' placeholder="Enter Valid Email"/>    
+            </div>
+
+            <div id ='input' class="u_pass1">
+                <i class="fas fa-user-lock"></i>
+            <input type="password" name="u_pass1" id='pass1' required="required" pattern="[a-z A-Z 0-9 ]{6,20}" maxlength="20" minlength='6' placeholder="Enter Password"/>    
+            </div>
+
+            <div id ='input' class="u_pass2">
+                <i class="fas fa-user-lock"></i>
+            <input type="password" name="u_pass2" id='pass2' required="required" pattern="[a-z A-Z 0-9 ]{6,20}" maxlength="20" minlength='6' placeholder="Re-Enter Password"/>    
+            </div>
+            <div id ='input' class="u_phone">
+                <i class="fas fa-phone-square-alt"></i>
+                <input type="tel" name="u_phone" required="required" pattern="[0-9 ]{10}" maxlength="10" minlength='10'  placeholder="Enter Phone No."/>    
+                </div>
+                <div id='input' class="u_gen">
+                    <i class="fas fa-users"></i>
+                    <select name="u_gen" required="required">
+                        <option value="">Select Gender</option>
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Other/Not Specified">Other/Not Specified</option>
+                    </select>
+                </div>
+                <div id ='input' class="u_dob">
+                    <i class="fas fa-birthday-cake"></i>
+                <input type="text" name="u_dob" required="required" placeholder="Enter Date Of Birth" onfocus="this.type='date'"/>    
+                </div>
+                <div id='input' class="u_country">
+                    <i class="fas fa-globe-americas"></i>
+                    <select name="u_country" required="required">
+                        <option value="">Select Country/Province</option>
+                        <option value="US">United States</option>
+                        <option value="CA">Canada</option>
+                        <option value="DO">Dominican Republic</option>
+                    </select>
+                </div>
+                <input id='btn' class="btn" type="submit" name="signup" value="Signup"/>
+                <input id='btn' type="reset"  value="Reset"/>
+        </form>
+    </div>
+
+
+    <div id='login'>
+        <h1 id='title'><i class="fas fa-user-check"></i></h1>
+        <div id ='input'>
+            <i class="fab fa-mailchimp"></i>
+            <input type="email" name="u_email" required="required" pattern="[a-z A-Z 0-9 ^@._]{5,50}" maxlength="50" minlength='5' placeholder="Enter Valid Email"/>    
+            </div>
+
+            <div id ='input'>
+                <i class="fas fa-user-lock"></i>
+            <input type="password" name="u_pass1" required="required" pattern="[a-z A-Z 0-9 ]{6,20}" maxlength="20" minlength='6' placeholder="Enter Password"/>    
+            </div>
+            <input id='btn' type="submit" name="Login" value="Login"/>
+            <input id='btn' type="reset"  value="Reset"/>
+            <center><p id='for_pass'>Forgot Password?</p></center><br/>
+            <div id='for_pop'>
+                <div id ='input'>
+                    <i class="fab fa-mailchimp"></i>
+                    <input type="email" name="for_email" required="required" pattern="[a-z A-Z 0-9 ^@._]{5,50}" maxlength="50" minlength='5' placeholder="Enter Valid Email"/>    
+                    </div>
+                    <input id='btn' type="submit" name="Send" value="Send"/>
+                    <input id='btn' class="close" type="button" value="Close"/>
+            </div>         
+    </div>
+</div>
+    </body>
+</html>
